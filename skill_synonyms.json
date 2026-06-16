@@ -1,0 +1,23 @@
+{
+  "scikit-learn": ["scikit learn", "sklearn"],
+  "machine learning": ["ml"],
+  "artificial intelligence": ["ai"],
+  "natural language processing": ["nlp"],
+  "large language models": ["llm", "llms"],
+  "amazon s3": ["s3"],
+  "amazon ec2": ["ec2"],
+  "amazon bedrock": ["bedrock"],
+  "amazon comprehend": ["comprehend"],
+  "amazon translate": ["translate"],
+  "node.js": ["nodejs"],
+  "power bi": ["powerbi"],
+  "exploratory data analysis": ["eda"],
+  "support vector machine": ["svm"],
+  "k-nearest neighbors": ["knn"],
+  "retrieval augmented generation": ["rag"],
+  "graphrag": ["graph rag"],
+  "sentence transformers": ["sentence-transformers"],
+  "github": ["git hub"],
+  "continuous integration": ["ci"],
+  "continuous deployment": ["cd"]
+}

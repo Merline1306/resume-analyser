@@ -1,0 +1,18 @@
+We are looking for a Data Scientist.
+
+Requirements:
+
+Python
+Machine Learning
+Deep Learning
+TensorFlow
+SQL
+AWS
+Docker
+Git
+Pandas
+NumPy
+Scikit Learn
+NLP
+Generative AI
+Prompt Engineering

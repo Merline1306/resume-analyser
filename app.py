@@ -1,4 +1,3 @@
-!pip install plotly
 import plotly.express as px
 import sys
 sys.path.append('/content/my_notebooks')

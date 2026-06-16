@@ -135,16 +135,4 @@ if resume and jd:
       for skill in missing_skills:
 
         st.write(f"✔ {skill.title()}")
-    st.markdown("---")
-
-    st.write("### Additional Tips")
-
-    st.write("• Include measurable project outcomes.")
-
-    st.write("• Add GitHub project links.")
-
-    st.write("• Mention certifications.")
-
-    st.write("• Highlight internship achievements.")
-
-    st.write("• Quantify your accomplishments wherever possible.")
+    

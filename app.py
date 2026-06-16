@@ -33,13 +33,11 @@ if resume and jd:
 
     matched_skills = list(set(jd_skills) & set(resume_skills))
 
-    cv = CountVectorizer()
-
-    matrix = cv.fit_transform([resume_text, jd])
-
-    similarity = cosine_similarity(matrix)[0][1]
-
-    score = round(similarity * 100, 2)
+    if len(jd_skills) > 0:
+      score = round((len(matched_skills) / len(jd_skills)) * 100,2)
+    else:
+      score=0
+  
 
     st.header("Resume Match Score")
 

@@ -1,3 +1,5 @@
+!pip install plotly
+import plotly.express as px
 import sys
 sys.path.append('/content/my_notebooks')
 
@@ -39,11 +41,56 @@ if resume and jd:
       score=0
   
 
-    st.header("Resume Match Score")
+    st.header("ATS Resume Analysis")
+    col1, col2, col3, col4 = st.columns(4)
+    col1.metric("ATS Score", f"{score}%")
+    col2.metric("Matched Skills", len(matched_skills))
+    col3.metric("Missing Skills", len(missing_skills))
+    if score >= 85:
+      rating = "Excellent ⭐⭐⭐⭐⭐"
+    elif score >= 70:
+      rating = "Good ⭐⭐⭐⭐"
+    elif score >= 50:
+      rating = "Average ⭐⭐⭐"
+    else:
+      rating = "Needs Improvement ⭐⭐"
 
-    st.progress(int(score))
+    col4.metric("Rating", rating)
+    st.progress(score/100)
+    st.write(f"Overall ATS Score : {score}%")
+    st.subheader("Resume Strength")
 
-    st.write(f"### {score}% Match")
+    if score >= 90:
+      st.success("★★★★★ Excellent Resume")
+
+    elif score >= 75:
+      st.success("★★★★☆ Very Good Resume")
+
+    elif score >= 60:
+      st.warning("★★★☆☆ Good Resume")
+
+    else:
+      st.error("★★☆☆☆ Needs Improvement")
+
+    fig = px.pie(
+
+    values=[len(matched_skills), len(missing_skills)],
+
+    names=["Matched Skills", "Missing Skills"],
+
+    title="Skill Coverage")
+
+    st.plotly_chart(fig, use_container_width=True)
+
+    fig = px.bar(
+
+    x=["Matched", "Missing"],
+
+    y=[len(matched_skills), len(missing_skills)],
+
+    title="Skill Comparison")
+
+    st.plotly_chart(fig, use_container_width=True)
 
     st.divider()
 
@@ -76,13 +123,29 @@ if resume and jd:
 
     st.divider()
 
-    st.subheader("Suggestions")
+    st.subheader("Recommendations")
 
     if len(missing_skills)==0:
-        st.success("Excellent Resume!")
+
+      st.success("Excellent! Your resume aligns well with the job description.")
 
     else:
-        st.write("Try adding these skills if applicable:")
 
-        for skill in missing_skills:
-            st.write("- ", skill.title())
+      st.info("Consider adding these skills if you have relevant experience:")
+
+      for skill in missing_skills:
+
+        st.write(f"✔ {skill.title()}")
+    st.markdown("---")
+
+    st.write("### Additional Tips")
+
+    st.write("• Include measurable project outcomes.")
+
+    st.write("• Add GitHub project links.")
+
+    st.write("• Mention certifications.")
+
+    st.write("• Highlight internship achievements.")
+
+    st.write("• Quantify your accomplishments wherever possible.")
